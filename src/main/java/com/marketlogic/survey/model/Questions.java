@@ -13,8 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.Cascade;
+import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -33,6 +32,8 @@ public class Questions implements Serializable{
 	 
 	@Column(name = "question")
 	@JsonProperty("question")
+	
+	@NotEmpty(message="Question can't blank or empty")
 	private String question; 
 	
 	

@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -28,6 +29,7 @@ public class Answers implements Serializable{
 	private long id;
 	
 	@Column(name = "answer")
+	@NotEmpty(message="Answer can't blank or empty")
 	private String answer;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = true)
